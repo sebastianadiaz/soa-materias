@@ -11,6 +11,7 @@
         <th>ID</th>
         <th>Nombre</th>
         <th>Alumnos</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -19,9 +20,23 @@
           <td><%= materia.id %></td>
           <td><%= materia.nombre %></td>
           <td><%= materia.alumnos %></td>
+          <td>
+            <a href="/materias/<%= materia.id %>/editar">Editar</a>
+            <form action="/materias/<%= materia.id %>?_method=DELETE" method="POST"> 
+              <button type="submit">Eliminar</button>
+            </form>
+          </td>
         </tr>
       <% }); %>
     </tbody>
   </table>
+  <h3>Agregar Materia</h3>
+  <form action="/materias" method="POST">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required><br><br>
+    <label for="alumnos">Alumnos:</label>
+    <input type="number" id="alumnos" name="alumnos" required><br><br>
+    <button type="submit">Agregar</button>
+  </form>
 </body>
 </html>

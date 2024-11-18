@@ -5,7 +5,7 @@ const port = 3001;
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-app.use(express.urlencoded({ extended: true })); 
+app.use(express.urlencoded({ extended: true })); // Para procesar datos de formularios
 
 app.get('/', (req, res) => {
   res.render('index');
@@ -26,10 +26,9 @@ app.get('/materias', async (req, res) => {
 app.post('/materias', async (req, res) => {
   try {
     await axios.post('http://localhost:3000/api/materias', req.body);
-    res.redirect('/materias'); // Redirigir a la vista de materias después de agregar
+    res.redirect('/materias');
   } catch (error) {
     console.error('Error al agregar la materia:', error);
-    // Manejar el error, por ejemplo, mostrar un mensaje al usuario
   }
 });
 
@@ -39,10 +38,9 @@ app.get('/materias/:id/editar', async (req, res) => {
     const id = req.params.id;
     const response = await axios.get(`http://localhost:3000/api/materias/${id}`);
     const materia = response.data;
-    res.render('editarMateria', { materia }); // Renderizar una vista para editar la materia
+    res.render('editarMateria', { materia }); 
   } catch (error) {
     console.error('Error al obtener la materia:', error);
-    // Manejar el error
   }
 });
 
@@ -53,7 +51,6 @@ app.put('/materias/:id', async (req, res) => {
     res.redirect('/materias'); 
   } catch (error) {
     console.error('Error al actualizar la materia:', error);
-    // Manejar el error
   }
 });
 
@@ -65,7 +62,6 @@ app.delete('/materias/:id', async (req, res) => {
     res.redirect('/materias'); 
   } catch (error) {
     console.error('Error al eliminar la materia:', error);
-    // Manejar el error
   }
 });
 
