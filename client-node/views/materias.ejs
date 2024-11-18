@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lista de Materias</title>
+</head>
+<body>
+  <h1>Lista de Materias</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Alumnos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% materias.forEach(materia => { %>
+        <tr>
+          <td><%= materia.id %></td>
+          <td><%= materia.nombre %></td>
+          <td><%= materia.alumnos %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>
