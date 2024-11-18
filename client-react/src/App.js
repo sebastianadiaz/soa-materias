@@ -3,7 +3,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          REACT ESTA FUNCIONADO
         </p>
         <a
           className="App-link"

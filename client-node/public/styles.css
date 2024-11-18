@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: rgb(199, 197, 202);
+  }
+  
+  h1 {
+    width: 40%;
+    border-radius: 15px;
+    margin: 15px auto;
+    text-align: center;
+    padding: 10px;
+    color: azure;
+    box-shadow: black 5px 5px 10px;
+    text-shadow: rgb(135, 135, 134) 2px 2px 3px;
+  }
+  
+  form {
+    margin: 20px;
+  }
+  
+  #materias {
+    margin-top: 20px;
+  }
+  
+  .materia {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+  }
