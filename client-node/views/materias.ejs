@@ -35,14 +35,30 @@
 
     <section id="listaMaterias">
       <h2>Lista de Materias:</h2>
-      <ul>
-        <% materias.forEach(materia => { %>
-          <li class="materia">
-            Materia: <%= materia.nombre %>, Alumnos: <%= materia.alumnos %> (ID: <%= materia.id %>)
-          </li>
-        <% }); %>
+      <ul id="lista">
       </ul>
     </section>
   </main>
+
+  <script>
+    function mostrarMaterias() {
+      fetch('/materias')
+        .then(response => response.json())
+        .then(materias => {
+          const listaMaterias = document.getElementById('lista'); // Obtener la lista
+          listaMaterias.innerHTML = ''; // Limpiar la lista
+
+          materias.forEach(materia => {
+            const li = document.createElement('li');
+            li.className = 'materia'; // Agregar la clase 'materia'
+            li.textContent = `Materia: ${materia.nombre}, Alumnos: ${materia.alumnos} (ID: ${materia.id})`;
+            listaMaterias.appendChild(li);
+          });
+        })
+        .catch(error => console.error('Error al obtener las materias:', error));
+    }
+
+    mostrarMaterias();
+  </script>
 </body>
 </html>
